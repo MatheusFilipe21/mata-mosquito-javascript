@@ -2,3 +2,21 @@
     height: 50px;
     width: 50px;
 }
+
+.mosquito2 {
+    height: 70px;
+    width: 70px;
+}
+
+.mosquito3 {
+    height: 90px;
+    width: 90px;
+}
+
+.ladoA {
+    transform: scaleX(1);
+}
+
+.ladoB {
+    transform: scaleX(-1);
+}
