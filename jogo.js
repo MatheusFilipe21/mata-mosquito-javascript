@@ -1,5 +1,6 @@
 var altura = 0
 var largura = 0
+var vidas = 1
 
 // Recuperando a área visível do navegador
 function ajustaTamanhoDoNavegador(){
@@ -14,7 +15,14 @@ function posicaoRandomica(){
 
     // Remover o mosquito anterior caso exista
     if (document.getElementById('mosquito')){
-        document.getElementById('mosquito').remove()  
+        document.getElementById('mosquito').remove()
+
+        if (vidas > 3){
+            document.location.href = 'gameover.html'
+        } else {
+            document.getElementById('v' + vidas).src = 'imagens/coracao_vazio.png'
+            vidas++
+        }
     }
 
     var posicaoX = parseInt(Math.random() * largura) - 90
@@ -31,6 +39,9 @@ function posicaoRandomica(){
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+    mosquito.onclick = function(){
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 
