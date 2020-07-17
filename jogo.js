@@ -1,14 +1,51 @@
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 10
+
+var criaMosquitoTempo = 1500
+
+var nivel = window.location.search
+nivel = nivel.replace('?', '')
+
+if (nivel === 'f'){
+    criaMosquitoTempo = 1500
+}else if(nivel === 'm'){
+    criaMosquitoTempo = 1000
+}else if(nivel === 'd'){
+    criaMosquitoTempo = 750
+}
+
+function iniciarJogo(){
+   var nivel = document.getElementById('nivel').value
+
+   if (nivel === ''){
+       alert('Selecione um nível para iniciar o jogo')
+       return false
+   }
+
+   window.location.href = 'app.html?' + nivel
+
+}
 
 // Recuperando a área visível do navegador
 function ajustaTamanhoDoNavegador(){
-    altura = innerHeight
-    largura = innerWidth
+    altura = window.innerHeight
+    largura = window.innerWidth
 }
 
 ajustaTamanhoDoNavegador()
+
+var cronometro = setInterval(function(){
+    if (tempo < 0){
+        clearInterval(cronometro)
+        clearInterval(criaMosquito)
+        document.location.href = 'vitoria.html'
+    } else {
+        document.getElementById('cronometro').innerHTML = tempo
+        tempo--
+    }
+}, 1000)
 
 // Gerando um posição aleatória na tela sem exceder o limite da página considerando o tamanho do mosquito
 function posicaoRandomica(){
