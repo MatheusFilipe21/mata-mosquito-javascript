@@ -40,7 +40,7 @@ No link a seguir é possível visualizar o projeto
 git clone https://github.com/MatheusFilipe21/mata-mosquito-javascript.git
 # Acessar a pasta do projeto
 cd mata-mosquito-javascript
-#Abir o arquivo index.html
+# Executar o arquivo index.html
 start index.html
 ```
 
